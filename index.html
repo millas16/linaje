@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linaje · Planificación genómica de cruzas para Polo Argentino</title>
+<meta name="description" content="Planificá cada cruza con datos genómicos: consanguinidad esperada de la cría, alertas de sangre reciente y plan óptimo de temporada.">
+<meta property="og:title" content="Linaje · La sangre real de tu criadero">
+<meta property="og:description" content="Planificación genómica de cruzas para Polo Argentino.">
+<meta property="og:image" content="fotos/hero_tropilla.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0B09'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23C9955E' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500&amp;family=Jost:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0D0B09}
+a{color:#C9955E}a:hover{color:#E2B482}
+button{font:inherit}
+.ph{background-size:cover;background-position:center;background-repeat:no-repeat}
+.fx{background-attachment:fixed}
+.ph-hero{background-image:url(fotos/hero_tropilla.jpg);animation:kb 26s ease-in-out infinite alternate}
+.ph-zaino{background-image:url(fotos/zaino_negro.jpg);background-position:center 30%}
+.ph-ojo{background-image:url(fotos/ojo.jpg);background-position:center 40%}
+.ph-potrillo{background-image:url(fotos/potrillo_mamando.jpg);background-position:70% center}
+.ph-polo{background-image:url(fotos/polo_partido.jpg)}
+.ph-silueta{background-image:url(fotos/atardecer_silueta.jpg);background-position:center 60%}
+.ph-crin{background-image:url(fotos/crin_trenzada.jpg)}
+.ph-lab{background-image:url(fotos/laboratorio.jpg)}
+.ph-cabeza{background-image:url(fotos/cabeza_bn.jpg);background-position:center 35%}
+.ph-criador{background-image:url(fotos/criador_atardecer.jpg)}
+.ph-galope{background-image:url(fotos/galope_dorado.jpg)}
+.tile .ph{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .ph{transform:scale(1.06)}
+.ticker{display:flex;width:max-content;animation:tk 40s linear infinite}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-1.5%,-1%)}}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:820px){.fx{background-attachment:scroll}}
+@media (prefers-reduced-motion:reduce){.ph-hero,.ticker{animation:none}.tile .ph{transition:none}.fx{background-attachment:scroll}}
+</style>
+
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+
+
+<div style="font-family: 'Jost', system-ui, sans-serif; color: #EDE6DA; background: #0D0B09; font-size: 17px; line-height: 1.6">
+
+<!-- HERO -->
+<section id="inicio" style="position: relative; min-height: 880px; overflow: hidden; display: flex; flex-direction: column">
+<div class="ph ph-hero" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Tropilla de caballos galopando entre el polvo"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0.55) 0%, rgba(13,11,9,0.35) 30%, rgba(13,11,9,0.6) 55%, rgba(13,11,9,0.94) 100%)" aria-hidden="true"></div>
+<header style="position: relative; z-index: 2">
+<nav style="max-width: 1320px; margin: 0 auto; padding: 28px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px" aria-label="Principal">
+<a href="#inicio" style="color: #EDE6DA; text-decoration: none; font-family: 'Cormorant', serif; font-weight: 600; font-size: 30px; letter-spacing: 0.24em">LINAJE</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase">
+<a href="#problema" style="color: #EDE6DA; text-decoration: none">El problema</a>
+<a href="#como" style="color: #EDE6DA; text-decoration: none">Cómo funciona</a>
+<a href="#demo" style="color: #EDE6DA; text-decoration: none">El informe</a>
+<a href="#preguntas" style="color: #EDE6DA; text-decoration: none">Preguntas</a>
+<a href="#contacto" style="color: #0D0B09; background: #EDE6DA; text-decoration: none; padding: 13px 22px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; font-weight: 600">Contacto</a>
+</div>
+</nav>
+</header>
+<div style="position: relative; z-index: 2; margin-top: auto; padding: 0 32px 56px">
+<div style="max-width: 1320px; margin: 0 auto">
+<p style="margin: 0 0 22px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Planificación genómica de cruzas · Polo Argentino</p>
+<h1 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(56px, 9vw, 132px); line-height: 0.92; max-width: 1100px">La sangre real de tu criadero.</h1>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-top: 40px">
+<p style="margin: 0; max-width: 540px; font-size: 19px; color: #D9D1C3">El pedigrí calcula menos de 1% de consanguinidad. El ADN mide casi 15%. Planificá cada cruza con la información que el papel no muestra.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<a href="#demo" style="background: #C9955E; color: #0D0B09; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; padding: 18px 30px; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center">Ver un informe de ejemplo</a>
+<a href="#contacto" style="border: 1px solid #EDE6DA; color: #EDE6DA; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; padding: 18px 30px; min-height: 54px; box-sizing: border-box; display: inline-flex; align-items: center">Hablemos de tu temporada</a>
+</div>
+</div>
+</div>
+</div>
+<div style="position: relative; z-index: 2; border-top: 1px solid rgba(237,230,218,0.18); padding: 18px 0; overflow: hidden" aria-hidden="true">
+<div class="ticker" style="font-family: 'Cormorant', serif; font-style: italic; font-size: 26px; color: #A89F90; white-space: nowrap">
+<span style="padding-right: 64px">Consanguinidad medida, no estimada</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">Cruzas virtuales antes de la temporada</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">Sangre reciente y sangre antigua</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">La decisión siempre es del criador</span><span style="padding-right: 64px; color: #C9955E">·</span>
+<span style="padding-right: 64px">Consanguinidad medida, no estimada</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">Cruzas virtuales antes de la temporada</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">Sangre reciente y sangre antigua</span><span style="padding-right: 64px; color: #C9955E">·</span><span style="padding-right: 64px">La decisión siempre es del criador</span><span style="padding-right: 64px; color: #C9955E">·</span>
+</div>
+</div>
+</section>
+
+<!-- INTRO + CIFRAS -->
+<section style="padding: 128px 32px">
+<div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 72px; align-items: stretch">
+<div style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Por qué importa</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05">Cada cruza define años de trabajo. Merece decidirse con la mejor información.</h2>
+<p style="margin: 28px 0 0; color: #A89F90; font-size: 18px; max-width: 600px">En el Polo Argentino, más del 70% de los potrillos nacen por transferencia embrionaria y pocos padrillos concentran gran parte de la descendencia. La raza se cierra sobre sí misma más rápido de lo que muestran los registros.</p>
+<div style="display: flex; flex-wrap: wrap; margin-top: auto; padding-top: 64px">
+<div style="flex: 1 1 240px; padding: 28px 24px 0 0; border-top: 1px solid #2E2922"><p style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: 76px; line-height: 1">0,86%</p><p style="margin: 10px 0 0; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89F90">Consanguinidad según pedigrí</p></div>
+<div style="flex: 1 1 240px; padding: 28px 24px 0 0; border-top: 1px solid #C9955E"><p style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: 76px; line-height: 1; color: #C9955E">14,8%</p><p style="margin: 10px 0 0; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89F90">La misma, medida con ADN</p></div>
+</div>
+<p style="margin: 28px 0 0; font-size: 13px; color: #A89F90">Fuente: Azcona, F. (2023). Tesis doctoral, IGEVET, Universidad Nacional de La Plata.</p>
+</div>
+<div class="ph ph-zaino" style="flex: 1 1 420px; min-height: 720px" role="img" aria-label="Caballo zaino sobre fondo negro"></div>
+</div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema" style="position: relative; padding: 160px 32px 128px; overflow: hidden">
+<div class="ph ph-ojo fx" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Ojo de caballo en primer plano"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(13,11,9,0.74)" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1320px; margin: 0 auto">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">El problema</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(44px, 6vw, 88px); line-height: 0.98; max-width: 900px">El pedigrí no alcanza.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 96px">
+<div style="flex: 1 1 300px; border-top: 1px solid rgba(237,230,218,0.35); padding-top: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 44px; color: #C9955E; line-height: 1">01</p><h3 style="margin: 18px 0 10px; font-size: 21px; font-weight: 600">Solo ve lo registrado</h3><p style="margin: 0; color: #CFC7B9">Asume que los fundadores del stud book no eran parientes. Todo el parentesco anterior queda invisible.</p></div>
+<div style="flex: 1 1 300px; border-top: 1px solid rgba(237,230,218,0.35); padding-top: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 44px; color: #C9955E; line-height: 1">02</p><h3 style="margin: 18px 0 10px; font-size: 21px; font-weight: 600">Da un promedio, no la realidad</h3><p style="margin: 0; color: #CFC7B9">Dos hermanos enteros valen lo mismo en el papel, pero cada uno heredó un ADN distinto.</p></div>
+<div style="flex: 1 1 300px; border-top: 1px solid rgba(237,230,218,0.35); padding-top: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 44px; color: #C9955E; line-height: 1">03</p><h3 style="margin: 18px 0 10px; font-size: 21px; font-weight: 600">Ordena mal a los caballos</h3><p style="margin: 0; color: #CFC7B9">La correlación entre pedigrí y ADN es de apenas 0,28. El padrillo que parece más seguro puede no serlo.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CITA -->
+<section style="position: relative; min-height: 640px; display: flex; align-items: center; overflow: hidden">
+<div class="ph ph-potrillo" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Potrillo tomando de su madre"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(90deg, rgba(13,11,9,0.95) 0%, rgba(13,11,9,0.8) 45%, rgba(13,11,9,0.1) 100%)" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1320px; width: 100%; margin: 0 auto; padding: 120px 32px; box-sizing: border-box">
+<p style="margin: 0; max-width: 640px; font-family: 'Cormorant', serif; font-style: italic; font-weight: 500; font-size: clamp(34px, 4vw, 56px); line-height: 1.15">No se trata de evitar la consanguinidad. Se trata de decidirla a conciencia.</p>
+<p style="margin: 32px 0 0; max-width: 520px; color: #CFC7B9; font-size: 18px">Concentrar la sangre de un gran caballo es una decisión de cría legítima. Linaje le muestra cuánto se concentra y qué tramos de ADN se duplican. La decisión siempre es suya.</p>
+</div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como" style="padding: 128px 32px">
+<div style="max-width: 1320px; margin: 0 auto">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Cómo funciona</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05; max-width: 760px">De una muestra de pelo a un plan de temporada.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 64px">
+<div class="tile" style="flex: 1 1 280px; position: relative; height: 560px; overflow: hidden">
+<div class="ph ph-crin" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Crin trenzada de un caballo"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0) 30%, rgba(13,11,9,0.95) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 28px; right: 28px; bottom: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">01</p><h3 style="margin: 12px 0 8px; font-size: 21px; font-weight: 600">Muestra</h3><p style="margin: 0; color: #CFC7B9; font-size: 16px">Pelo con raíz de las yeguas y padrillos candidatos. Cada caballo se analiza una sola vez.</p></div>
+</div>
+<div class="tile" style="flex: 1 1 280px; position: relative; height: 560px; overflow: hidden">
+<div class="ph ph-lab" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Muestras en un laboratorio"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0) 30%, rgba(13,11,9,0.95) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 28px; right: 28px; bottom: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">02</p><h3 style="margin: 12px 0 8px; font-size: 21px; font-weight: 600">Lectura del ADN</h3><p style="margin: 0; color: #CFC7B9; font-size: 16px">Un laboratorio lee unas 70.000 posiciones del genoma con un chip equino estándar.</p></div>
+</div>
+<div class="tile" style="flex: 1 1 280px; position: relative; height: 560px; overflow: hidden">
+<div class="ph ph-cabeza" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Cabeza de caballo en blanco y negro"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0) 30%, rgba(13,11,9,0.95) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 28px; right: 28px; bottom: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">03</p><h3 style="margin: 12px 0 8px; font-size: 21px; font-weight: 600">Cruzas virtuales</h3><p style="margin: 0; color: #CFC7B9; font-size: 16px">Simulamos cada cruza posible antes de hacerla y calculamos la consanguinidad esperada de la cría.</p></div>
+</div>
+<div class="tile" style="flex: 1 1 280px; position: relative; height: 560px; overflow: hidden">
+<div class="ph ph-criador" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Criador junto a su caballo al atardecer"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0) 30%, rgba(13,11,9,0.95) 100%)" aria-hidden="true"></div>
+<div style="position: absolute; left: 28px; right: 28px; bottom: 28px"><p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">04</p><h3 style="margin: 12px 0 8px; font-size: 21px; font-weight: 600">Informe y reunión</h3><p style="margin: 0; color: #CFC7B9; font-size: 16px">Recibe el informe de temporada y lo repasamos juntos. La decisión final es suya.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BANDA POLO -->
+<section style="position: relative; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden">
+<div class="ph ph-polo fx" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Jugadores de polo en plena jugada"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(180deg, rgba(13,11,9,0.35) 0%, rgba(13,11,9,0.9) 100%)" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1320px; width: 100%; margin: 0 auto; padding: 0 32px 72px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(48px, 7vw, 104px); line-height: 0.95">Criado para el juego.<br>Cuidado desde la sangre.</h2>
+<p style="margin: 0; max-width: 380px; color: #CFC7B9">El Polo Argentino es una de las razas de mayor valor del país. Conocer su diversidad genética es cuidar su futuro.</p>
+</div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" style="padding: 128px 32px; background: #14110D">
+<div style="max-width: 1320px; margin: 0 auto">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">El informe</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05; max-width: 840px">Elegí una yegua y mirá qué padrillo le conviene.</h2>
+<p style="margin: 18px 0 0; color: #A89F90; max-width: 680px">Un criadero de ejemplo con cuatro yeguas y cinco padrillos. Los datos son ilustrativos: muestran cómo se ve el informe real.</p>
+
+<div style="margin-top: 56px; background: #1B1712; border: 1px solid #2E2922">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 22px 28px; border-bottom: 1px solid #2E2922">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #A89F90; margin-right: 10px">Yegua</span>
+<span id="mares" style="display: contents"></span>
+</div>
+
+<div style="display: flex; flex-wrap: wrap">
+<div style="flex: 999 1 600px; min-width: 0; padding: 32px 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 34px">Padrillos para <span id="selName"></span></h3>
+<div style="display: flex; gap: 20px; font-size: 13px; color: #A89F90">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 22px; height: 8px; background: #C9955E; display: inline-block"></span>Según ADN</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 22px; height: 8px; background: #6B6357; display: inline-block"></span>Según pedigrí</span>
+</div>
+</div>
+<p style="margin: 6px 0 22px; font-size: 15px; color: #A89F90">Consanguinidad esperada de la cría (F), de menor a mayor según ADN.</p>
+
+<div id="rows" style="display: flex; flex-direction: column"></div>
+</div>
+
+<aside style="flex: 1 1 320px; min-width: 0; padding: 36px 32px; background: #24291C; color: #EDE6DA">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #C9955E">Lo que el papel no muestra</p>
+<p style="margin: 18px 0 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: 32px; line-height: 1.15"><span id="insight"></span></p>
+<p style="margin: 18px 0 0; color: #CFC7B9; font-size: 15px"><span id="insightSub"></span></p>
+<div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #3F4632">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #CFC7B9">Mejor opción según ADN</p>
+<p style="margin: 6px 0 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 48px; line-height: 1"><span id="bestName"></span></p>
+<p style="margin: 8px 0 0; color: #C9955E">F esperado <span id="bestF"></span></p>
+</div>
+</aside>
+</div>
+</div>
+
+<div style="margin-top: 28px; background: #1B1712; border: 1px solid #2E2922; padding: 32px 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h3 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 34px">Plan de temporada propuesto</h3>
+<p style="margin: 0; font-size: 14px; color: #A89F90">Máximo 2 yeguas por padrillo · F máximo aceptado: 6,25%</p>
+</div>
+<p style="margin: 6px 0 22px; font-size: 15px; color: #A89F90">El plan busca la mejor combinación para toda la temporada, respetando las reglas del criador.</p>
+<div style="overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; min-width: 520px; font-size: 16px">
+<thead>
+<tr style="text-align: left; color: #A89F90; font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em">
+<th style="padding: 10px 12px 10px 0; font-weight: 500; border-bottom: 1px solid #3A342B">Yegua</th>
+<th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #3A342B">Padrillo asignado</th>
+<th style="padding: 10px 12px; font-weight: 500; border-bottom: 1px solid #3A342B; text-align: right">F esperado (ADN)</th>
+</tr>
+</thead>
+<tbody id="plan"></tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUE RECIBE -->
+<section style="padding: 128px 32px">
+<div style="max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 72px; align-items: stretch">
+<div class="ph ph-galope" style="flex: 1 1 460px; min-height: 680px" role="img" aria-label="Dos caballos galopando en un campo dorado"></div>
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; justify-content: center">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Qué recibe</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05">Un informe claro, una vez por temporada.</h2>
+<p style="margin: 20px 0 0; color: #A89F90">En PDF y en versión web, para leerse en diez minutos y discutirse con su veterinario.</p>
+<div style="margin-top: 40px; display: flex; flex-direction: column">
+<div style="padding: 22px 0; border-top: 1px solid #2E2922"><p style="margin: 0; font-weight: 600; font-size: 18px">Ranking de padrillos por yegua</p><p style="margin: 4px 0 0; color: #A89F90">La consanguinidad esperada de la cría con cada padrillo candidato.</p></div>
+<div style="padding: 22px 0; border-top: 1px solid #2E2922"><p style="margin: 0; font-weight: 600; font-size: 18px">Alertas de sangre reciente</p><p style="margin: 4px 0 0; color: #A89F90">Aviso cuando una cruza duplicaría tramos largos de ADN de un ancestro cercano.</p></div>
+<div style="padding: 22px 0; border-top: 1px solid #2E2922"><p style="margin: 0; font-weight: 600; font-size: 18px">Plan óptimo de temporada</p><p style="margin: 4px 0 0; color: #A89F90">Respeta cupos por padrillo, cruzas ya decididas y el límite que usted elija.</p></div>
+<div style="padding: 22px 0; border-top: 1px solid #2E2922; border-bottom: 1px solid #2E2922"><p style="margin: 0; font-weight: 600; font-size: 18px">Comparación con el pedigrí y reunión de repaso</p><p style="margin: 4px 0 0; color: #A89F90">Qué habría sugerido el papel, dónde cambia la decisión, y una charla para ajustar el plan.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICIOS -->
+<section style="padding: 0 32px 128px">
+<div style="max-width: 1320px; margin: 0 auto">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Servicios</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05">Empiece por una temporada.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 56px">
+<div style="flex: 1 1 380px; border: 1px solid #2E2922; background: #14110D; padding: 44px; display: flex; flex-direction: column">
+<p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">I</p>
+<h3 style="margin: 16px 0 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 36px">Planificación de temporada</h3>
+<p style="margin: 8px 0 0; color: #A89F90">Para decidir las cruzas de este año.</p>
+<p style="margin: 28px 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9955E">[Precio a definir]</p>
+<ul style="margin: 0; padding-left: 20px; color: #CFC7B9; display: flex; flex-direction: column; gap: 8px">
+<li>Análisis de yeguas y padrillos candidatos</li>
+<li>Informe de temporada en PDF y web</li>
+<li>Una reunión de repaso</li>
+</ul>
+<a href="#contacto" style="margin-top: auto; padding-top: 36px; text-decoration: none; display: block"><span style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border: 1px solid #EDE6DA; color: #EDE6DA; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600">Consultar</span></a>
+</div>
+<div style="flex: 1 1 380px; background: #24291C; padding: 44px; display: flex; flex-direction: column">
+<p style="margin: 0; font-family: 'Cormorant', serif; font-size: 40px; color: #C9955E; line-height: 1">II</p>
+<h3 style="margin: 16px 0 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 36px">Seguimiento del criadero</h3>
+<p style="margin: 8px 0 0; color: #CFC7B9">Para planificar varias temporadas y cuidar la diversidad del plantel.</p>
+<p style="margin: 28px 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9955E">[Precio a definir]</p>
+<ul style="margin: 0; padding-left: 20px; color: #CFC7B9; display: flex; flex-direction: column; gap: 8px">
+<li>Todo lo de la planificación de temporada</li>
+<li>Incorporación de cada potrillo nuevo</li>
+<li>Evaluación de padrillos antes de comprarlos</li>
+</ul>
+<a href="#contacto" style="margin-top: auto; padding-top: 36px; text-decoration: none; display: block"><span style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; background: #C9955E; color: #0D0B09; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600">Consultar</span></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PREGUNTAS -->
+<section id="preguntas" style="padding: 128px 32px; background: #14110D">
+<div style="max-width: 920px; margin: 0 auto">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Preguntas frecuentes</p>
+<h2 style="margin: 0 0 44px; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.05">Lo que suelen preguntar los criadores.</h2>
+<details style="border-top: 1px solid #3A342B; padding: 22px 0"><summary style="cursor: pointer; font-family: 'Cormorant', serif; font-weight: 600; font-size: 26px; min-height: 44px; display: flex; align-items: center">¿Tengo que dejar de usar mi padrillo preferido?</summary><p style="margin: 12px 0 0; color: #A89F90">No. El informe le muestra cuánta consanguinidad trae cada cruza. Si quiere concentrar la sangre de un padrillo, lo hace sabiendo exactamente cuánto.</p></details>
+<details style="border-top: 1px solid #3A342B; padding: 22px 0"><summary style="cursor: pointer; font-family: 'Cormorant', serif; font-weight: 600; font-size: 26px; min-height: 44px; display: flex; align-items: center">¿Qué pasa con los datos de mis caballos?</summary><p style="margin: 12px 0 0; color: #A89F90">Son suyos y son confidenciales. Se usan solo para su informe y no se comparten sin su autorización por escrito.</p></details>
+<details style="border-top: 1px solid #3A342B; padding: 22px 0"><summary style="cursor: pointer; font-family: 'Cormorant', serif; font-weight: 600; font-size: 26px; min-height: 44px; display: flex; align-items: center">¿Hay que repetir el análisis cada año?</summary><p style="margin: 12px 0 0; color: #A89F90">No. El ADN de un caballo no cambia: se analiza una sola vez. Cada temporada solo se suman los animales nuevos.</p></details>
+<details style="border-top: 1px solid #3A342B; padding: 22px 0"><summary style="cursor: pointer; font-family: 'Cormorant', serif; font-weight: 600; font-size: 26px; min-height: 44px; display: flex; align-items: center">¿Esto reemplaza a mi veterinario?</summary><p style="margin: 12px 0 0; color: #A89F90">No. Es una herramienta más para la decisión de cría, pensada para discutirse con su veterinario y su equipo.</p></details>
+<details style="border-top: 1px solid #3A342B; border-bottom: 1px solid #3A342B; padding: 22px 0"><summary style="cursor: pointer; font-family: 'Cormorant', serif; font-weight: 600; font-size: 26px; min-height: 44px; display: flex; align-items: center">¿En qué se basa el método?</summary><p style="margin: 12px 0 0; color: #A89F90">En estudios genómicos publicados sobre el Polo Argentino (IGEVET, Universidad Nacional de La Plata) y en métodos estándar de genética animal. El sistema se valida con poblaciones simuladas antes de usarse con caballos reales.</p></details>
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" style="position: relative; padding: 160px 32px; overflow: hidden">
+<div class="ph ph-silueta fx" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0" role="img" aria-label="Silueta de caballo al atardecer"></div>
+<div style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(13,11,9,0.7)" aria-hidden="true"></div>
+<div style="position: relative; max-width: 1320px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 72px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0">
+<p style="margin: 0 0 18px; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #C9955E">Contacto</p>
+<h2 style="margin: 0; font-family: 'Cormorant', serif; font-weight: 500; font-size: clamp(48px, 6vw, 88px); line-height: 0.98">Planifiquemos su próxima temporada.</h2>
+<p style="margin: 28px 0 0; color: #D9D1C3; font-size: 18px; max-width: 480px">Cuéntenos cuántas yeguas va a servir y con qué padrillos. Le respondemos con una propuesta.</p>
+</div>
+<form style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 6px; background: rgba(13,11,9,0.82); border: 1px solid #3A342B; padding: 40px">
+<label for="f-nombre" style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89F90">Nombre y criadero</label>
+<input id="f-nombre" type="text" style="min-height: 50px; padding: 0 14px; border: none; border-bottom: 1px solid #6B6357; background: transparent; color: #EDE6DA; font: inherit; margin-bottom: 18px">
+<label for="f-mail" style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89F90">Mail o WhatsApp</label>
+<input id="f-mail" type="text" style="min-height: 50px; padding: 0 14px; border: none; border-bottom: 1px solid #6B6357; background: transparent; color: #EDE6DA; font: inherit; margin-bottom: 18px">
+<label for="f-yeguas" style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A89F90">Yeguas a servir esta temporada</label>
+<input id="f-yeguas" type="number" style="min-height: 50px; padding: 0 14px; border: none; border-bottom: 1px solid #6B6357; background: transparent; color: #EDE6DA; font: inherit; margin-bottom: 24px">
+<button type="button" style="min-height: 56px; border: none; background: #C9955E; color: #0D0B09; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; cursor: pointer">Pedir una evaluación</button>
+</form>
+</div>
+</section>
+
+<footer style="padding: 80px 32px 40px; background: #0D0B09; color: #A89F90; font-size: 15px; border-top: 1px solid #2E2922">
+<div style="max-width: 1320px; margin: 0 auto">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
+<div style="flex: 1 1 320px">
+<p style="margin: 0; font-family: 'Cormorant', serif; font-weight: 600; font-size: 34px; letter-spacing: 0.24em; color: #EDE6DA">LINAJE</p>
+<p style="margin: 12px 0 0; max-width: 340px">Planificación genómica de cruzas para Polo Argentino.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 72px">
+<div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0 0 6px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #EDE6DA">Servicio</p><a href="#como" style="color: #A89F90; text-decoration: none">Cómo funciona</a><a href="#demo" style="color: #A89F90; text-decoration: none">El informe</a><a href="#preguntas" style="color: #A89F90; text-decoration: none">Preguntas</a></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><p style="margin: 0 0 6px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #EDE6DA">Contacto</p><span>[Mail]</span><span>[WhatsApp]</span><span>Buenos Aires, Argentina</span></div>
+</div>
+</div>
+<div style="margin-top: 64px; padding-top: 24px; border-top: 1px solid #2E2922; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px">
+<span>Prototipo desarrollado como Proyecto Final · Biotecnología y Bioinformática · UADE</span>
+<span>Fotografías: <a href="https://www.pexels.com" style="color: #A89F90">Pexels</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+
+<script>
+// Demo interactiva del informe (datos ilustrativos)
+(function () {
+  var DATA = {
+    'Brisa': [
+      { name: 'Ombú', gen: 2.6, ped: 0.9, alert: '' },
+      { name: 'Centauro', gen: 3.1, ped: 0.4, alert: '' },
+      { name: 'Quebracho', gen: 5.2, ped: 0.2, alert: '' },
+      { name: 'Faro', gen: 9.8, ped: 0.6, alert: 'Duplicaría un tramo largo de ADN de un abuelo en común.' },
+      { name: 'Halcón', gen: 12.4, ped: 1.1, alert: 'Duplicaría varios tramos largos: consanguinidad muy reciente.' }
+    ],
+    'Tormenta': [
+      { name: 'Centauro', gen: 2.2, ped: 0.8, alert: '' },
+      { name: 'Halcón', gen: 3.9, ped: 0.3, alert: '' },
+      { name: 'Ombú', gen: 4.8, ped: 0.2, alert: '' },
+      { name: 'Quebracho', gen: 7.1, ped: 0.5, alert: '' },
+      { name: 'Faro', gen: 11.2, ped: 0.7, alert: 'Duplicaría un tramo largo de ADN de un abuelo en común.' }
+    ],
+    'Alondra': [
+      { name: 'Quebracho', gen: 1.9, ped: 0.6, alert: '' },
+      { name: 'Faro', gen: 3.4, ped: 1.2, alert: '' },
+      { name: 'Centauro', gen: 6.3, ped: 0.1, alert: '' },
+      { name: 'Ombú', gen: 8.6, ped: 0.4, alert: 'Comparten un ancestro cercano que no figura en el pedigrí.' },
+      { name: 'Halcón', gen: 10.5, ped: 0.9, alert: 'Duplicaría varios tramos largos: consanguinidad muy reciente.' }
+    ],
+    'Pampa': [
+      { name: 'Faro', gen: 2.4, ped: 0.7, alert: '' },
+      { name: 'Halcón', gen: 2.9, ped: 1.0, alert: '' },
+      { name: 'Quebracho', gen: 4.4, ped: 0.3, alert: '' },
+      { name: 'Centauro', gen: 6.9, ped: 0.2, alert: '' },
+      { name: 'Ombú', gen: 9.1, ped: 0.5, alert: 'Duplicaría un tramo largo de ADN de un abuelo en común.' }
+    ]
+  };
+  var PLAN = [
+    ['Brisa', 'Ombú', '2,6%'], ['Tormenta', 'Centauro', '2,2%'],
+    ['Alondra', 'Quebracho', '1,9%'], ['Pampa', 'Faro', '2,4%']
+  ];
+  var MAX = 13;
+  var fmt = function (v) { return v.toFixed(1).replace('.', ',') + '%'; };
+  var $ = function (id) { return document.getElementById(id); };
+
+  function level(g) {
+    if (g < 4) return ['Bajo', '#24301E', '#A9C79A'];
+    if (g < 8) return ['Moderado', '#3A2E15', '#E3B866'];
+    return ['Alto', '#3B1D18', '#EE9C8C'];
+  }
+
+  function render(sel) {
+    // botones
+    $('mares').innerHTML = Object.keys(DATA).map(function (n) {
+      var on = n === sel;
+      return '<button type="button" data-m="' + n + '" aria-pressed="' + on + '" style="min-height: 44px; padding: 10px 24px; cursor: pointer; font-size: 15px; letter-spacing: 0.08em; border: 1px solid ' + (on ? '#C9955E' : '#4A4339') + '; background: ' + (on ? '#C9955E' : 'transparent') + '; color: ' + (on ? '#0D0B09' : '#EDE6DA') + '">' + n + '</button>';
+    }).join('');
+
+    var list = DATA[sel];
+    var byPed = list.slice().sort(function (a, b) { return a.ped - b.ped; });
+
+    // ranking
+    $('rows').innerHTML = list.map(function (s, i) {
+      var lv = level(s.gen);
+      var alert = s.alert ? '<p style="flex: 1 1 100%; margin: 0 0 0 52px; font-size: 14px; color: #EE9C8C; display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#EE9C8C" stroke-width="1.5" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z"></path><path d="M8 6.5v3.2M8 11.6v.4"></path></svg>' + s.alert + '</p>' : '';
+      return '<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 18px 0; border-top: 1px solid #2E2922">' +
+        '<span style="width: 32px; font-family: \'Cormorant\', serif; font-size: 30px; color: #C9955E; line-height: 1">' + (i + 1) + '</span>' +
+        '<div style="width: 150px"><p style="margin: 0; font-weight: 600; font-size: 18px">' + s.name + '</p><p style="margin: 2px 0 0; font-size: 13px; color: #A89F90">Pedigrí lo ubica ' + (byPed.indexOf(s) + 1) + '.º</p></div>' +
+        '<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 7px; min-width: 200px">' +
+          '<div style="display: flex; align-items: center; gap: 12px"><span style="flex: 1; height: 10px; background: #2A251E; display: block"><span class="bar" style="display: block; height: 10px; background: #C9955E; width: ' + Math.min(100, s.gen / MAX * 100).toFixed(1) + '%"></span></span><span style="width: 52px; text-align: right; font-size: 15px; font-weight: 600">' + fmt(s.gen) + '</span></div>' +
+          '<div style="display: flex; align-items: center; gap: 12px"><span style="flex: 1; height: 5px; background: #2A251E; display: block"><span class="bar" style="display: block; height: 5px; background: #6B6357; width: ' + Math.min(100, s.ped / MAX * 100).toFixed(1) + '%"></span></span><span style="width: 52px; text-align: right; font-size: 13px; color: #A89F90">' + fmt(s.ped) + '</span></div>' +
+        '</div>' +
+        '<span style="width: 104px; text-align: center; padding: 6px 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; background: ' + lv[1] + '; color: ' + lv[2] + '">' + lv[0] + '</span>' +
+        alert + '</div>';
+    }).join('');
+
+    // panel lateral
+    var best = list[0], pedBest = byPed[0];
+    $('selName').textContent = sel;
+    $('bestName').textContent = best.name;
+    $('bestF').textContent = fmt(best.gen);
+    if (pedBest === best) {
+      $('insight').textContent = 'Esta vez el pedigrí y el ADN coinciden en el mejor padrillo.';
+      $('insightSub').textContent = 'Aun así, el ADN muestra valores varias veces más altos que los del papel.';
+    } else {
+      $('insight').textContent = 'El pedigrí recomendaría a ' + pedBest.name + '. El ADN lo ubica ' + (list.indexOf(pedBest) + 1) + '.º.';
+      $('insightSub').textContent = 'Por pedigrí, ' + pedBest.name + ' parece el más seguro (' + fmt(pedBest.ped) + '). Con ADN, su cría tendría ' + fmt(pedBest.gen) + '.';
+    }
+  }
+
+  $('plan').innerHTML = PLAN.map(function (p) {
+    return '<tr><td style="padding: 16px 12px 16px 0; border-bottom: 1px solid #2E2922; font-weight: 600">' + p[0] + '</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2922">' + p[1] + '</td><td style="padding: 16px 12px; border-bottom: 1px solid #2E2922; text-align: right; color: #C9955E">' + p[2] + '</td></tr>';
+  }).join('');
+
+  $('mares').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-m]');
+    if (b) render(b.getAttribute('data-m'));
+  });
+  render('Brisa');
+})();
+
+</script>
+</body>
+</html>
